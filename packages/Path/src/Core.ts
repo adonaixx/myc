@@ -36,4 +36,3 @@ function resolve(pathOrPaths: MaybeArray<string>): string[] {
 }
 
 export { resolve };
-

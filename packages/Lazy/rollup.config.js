@@ -25,7 +25,7 @@ export default defineConfig([
 		output: {
 			file: "./build/lazy.js",
 			format: "esm",
-			plugins: [prettier(prettierrc)]
+			plugins: [prettier(prettierrc)],
 		},
 		plugins: [nodeResolve(), typescript()],
 		external: [
@@ -39,7 +39,7 @@ export default defineConfig([
 		output: {
 			file: "./build/lazy.d.ts",
 			format: "esm",
-			plugins: [prettier(prettierrc)]
+			plugins: [prettier(prettierrc)],
 		},
 		plugins: [nodeResolve(), typescript(), dts()],
 		external: [
