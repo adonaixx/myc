@@ -4,14 +4,12 @@
 	"description": "Private monorepo with shared utilities, helpers, and modular code pieces for reusable, streamlined functionality across projects.",
 	"author": "Arthur Adonai",
 	"private": true,
-	"workspaces": [
-		"packages/*"
-	],
-	"packageManager": "bun@1.1.33",
+	"packageManager": "pnpm@9.12.2",
 	"scripts": {
-		"build-all": "bun run --filter '*' build",
+		"build-all": "pnpm run --filter=* build",
 		"gen": "plop",
-		"link-all": "bun run --filter '*' link"
+		"link-all": "pnpm run --filter=* link",
+		"register": "pnpm build-all && pnpm link-all"
 	},
 	"devDependencies": {
 		"@types/node": "latest",

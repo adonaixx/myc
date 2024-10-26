@@ -10,7 +10,7 @@
 	],
 	"scripts": {
 		"build": "rollup --silent -c",
-		"link": "bun link"
+		"link": "pnpm link --global"
 	},
 	"devDependencies": {
 		"@myc/decorators": "workspace:*",

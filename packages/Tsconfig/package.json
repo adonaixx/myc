@@ -8,6 +8,6 @@
 		"tsconfig.json"
 	],
 	"scripts": {
-		"link": "bun link"
+		"link": "pnpm link --global"
 	}
 }
