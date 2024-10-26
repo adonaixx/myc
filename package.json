@@ -9,7 +9,9 @@
 	],
 	"packageManager": "bun@1.1.33",
 	"scripts": {
-		"gen": "plop"
+		"build": "bun --filter=* run build && link",
+		"gen": "plop",
+		"link": "bun --filter=* run link"
 	},
 	"devDependencies": {
 		"@types/node": "latest",

@@ -10,12 +10,18 @@
 	"files": [
 		"build"
 	],
+	"scripts": {
+		"build": "rollup -c",
+		"link": "bun link",
+		"lint": "tsc"
+	},
 	"devDependencies": {
 		"@{{kebabCase scope}}/tsconfig": "workspace:*",
 		"@rollup/plugin-node-resolve": "latest",
 		"@rollup/plugin-typescript": "latest",
 		"rollup": "^4.0.0",
 		"rollup-plugin-dts": "latest",
-		"rollup-plugin-prettier": "latest"
+		"rollup-plugin-prettier": "latest",
+		"typescript": "^5.0.0"
 	}
 }
