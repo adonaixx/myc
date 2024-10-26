@@ -106,7 +106,7 @@ export default function (/** @type {import("plop").NodePlopAPI} */ plop) {
 	});
 
 	plop.setActionType("install", async (answers, { pkg }, plop) => {
-		await execAsync("bun i");
+		await execAsync("pnpm i");
 		return (
 			"Installed packages" +
 			(pkg ? ` for ${plop.renderString(pkg, answers)}.` : ".")
