@@ -1,0 +1,16 @@
+{
+	"name": "myc",
+	"type": "module",
+	"description": "Private monorepo with shared utilities, helpers, and modular code pieces for reusable, streamlined functionality across projects.",
+	"author": "Arthur Adonai",
+	"private": true,
+	"workspaces": [
+		"packages/*"
+	],
+	"packageManager": "bun@1.1.33",
+	"devDependencies": {
+		"prettier-plugin-jsdoc": "latest",
+		"prettier-plugin-pkg": "latest",
+		"prettier-plugin-toml": "latest"
+	}
+}

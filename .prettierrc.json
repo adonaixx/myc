@@ -1,0 +1,26 @@
+{
+	"printWidth": 90,
+	"trailingComma": "es5",
+	"bracketSameLine": true,
+	"vueIndentScriptAndStyle": true,
+	"singleAttributePerLine": true,
+	"overrides": [
+		{
+			"files": "*.json",
+			"options": {
+				"printWidth": 0,
+				"trailingComma": "none"
+			}
+		}
+	],
+	"plugins": [
+		"prettier-plugin-jsdoc",
+		"prettier-plugin-pkg",
+		"prettier-plugin-toml"
+	],
+	"jsdocCommentLineStrategy": "multiline",
+	"jsdocSeparateReturnsFromParam": true,
+	"jsdocPreferCodeFences": true,
+	"tsdoc": true,
+	"jsdocPrintWidth": 80
+}
