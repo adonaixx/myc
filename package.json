@@ -8,7 +8,12 @@
 		"packages/*"
 	],
 	"packageManager": "bun@1.1.33",
+	"scripts": {
+		"gen": "plop"
+	},
 	"devDependencies": {
+		"@types/node": "latest",
+		"plop": "^4.0.0",
 		"prettier-plugin-jsdoc": "latest",
 		"prettier-plugin-pkg": "latest",
 		"prettier-plugin-toml": "latest"

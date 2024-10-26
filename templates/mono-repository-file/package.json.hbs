@@ -1,0 +1,12 @@
+{
+	"name": "@{{kebabCase scope}}/{{kebabCase fileName}}",
+	"type": "module",
+	{{#if author}}
+	"author": "{{author}}",
+	{{/if}}
+	"private": true,
+	"module": "./{{fileName}}{{ext}}",
+	"files": [
+		"{{fileName}}{{ext}}"
+	]
+}
