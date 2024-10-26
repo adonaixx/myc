@@ -1,4 +1,6 @@
+import { exec } from "node:child_process";
 import { createRequire } from "node:module";
+import { promisify } from "node:util";
 
 const require = createRequire(import.meta.url);
 const pkg = require("./package.json");
@@ -17,6 +19,8 @@ function getManyTemplates(path) {
 		base: `./templates/${path}`,
 	};
 }
+
+const execAsync = promisify(exec);
 
 export default function (/** @type {import("plop").NodePlopAPI} */ plop) {
 	plop.setWelcomeMessage("What are you needing to generate now?");
@@ -65,6 +69,7 @@ export default function (/** @type {import("plop").NodePlopAPI} */ plop) {
 							'Extension must include the "." at the beggining'
 						);
 					},
+					default: ".json",
 				},
 			];
 
@@ -98,6 +103,14 @@ export default function (/** @type {import("plop").NodePlopAPI} */ plop) {
 				path: "./packages/{{pascalCase fileName}}/package.json",
 			},
 		],
+	});
+
+	plop.setActionType("install", async (answers, { pkg }, plop) => {
+		await execAsync("bun i");
+		return (
+			"Installed packages" +
+			(pkg ? ` for ${plop.renderString(pkg, answers)}.` : ".")
+		);
 	});
 
 	plop.setGenerator("Mono-repository Drop", {
@@ -159,6 +172,10 @@ export default function (/** @type {import("plop").NodePlopAPI} */ plop) {
 				type: "addMany",
 				...getManyTemplates("mono-repository-drop"),
 				destination: "./packages/{{pascalCase dropName}}",
+			},
+			{
+				type: "install",
+				pkg: "@{{scope}}/{{kebabCase dropName}}",
 			},
 		],
 	});
