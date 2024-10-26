@@ -9,8 +9,7 @@
 	],
 	"scripts": {
 		"build": "rollup --silent -c",
-		"link": "bun link",
-		"lint": "tsc"
+		"link": "bun link"
 	},
 	"devDependencies": {
 		"@myc/tsconfig": "workspace:*",
@@ -18,7 +17,6 @@
 		"@rollup/plugin-typescript": "latest",
 		"rollup": "^4.0.0",
 		"rollup-plugin-dts": "latest",
-		"rollup-plugin-prettier": "latest",
-		"typescript": "^5.0.0"
+		"rollup-plugin-prettier": "latest"
 	}
 }
