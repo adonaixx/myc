@@ -11,7 +11,7 @@
 	"scripts": {
 		"build-all": "bun run --filter '*' build",
 		"gen": "plop",
-		"link-all": "bun run build-all && bun run --filter '*' link"
+		"link-all": "bun run --filter '*' link"
 	},
 	"devDependencies": {
 		"@types/node": "latest",

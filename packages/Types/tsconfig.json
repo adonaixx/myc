@@ -1,6 +1,7 @@
 {
 	"extends": "@myc/tsconfig",
 	"compilerOptions": {
+		"target": "es2022",
 		"paths": {
 			"@/*": [
 				"./src/*.js",

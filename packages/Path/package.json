@@ -1,9 +1,10 @@
 {
-	"name": "@myc/types",
+	"name": "@myc/path",
 	"type": "module",
 	"author": "Arthur Adonai",
 	"private": true,
-	"types": "./build/types.d.ts",
+	"module": "./build/path.js",
+	"types": "./build/path.d.ts",
 	"files": [
 		"build"
 	],
@@ -12,6 +13,7 @@
 		"link": "bun link"
 	},
 	"devDependencies": {
+		"@myc/decorators": "workspace:*",
 		"@myc/tsconfig": "workspace:*",
 		"@rollup/plugin-node-resolve": "latest",
 		"@rollup/plugin-typescript": "latest",

@@ -1,9 +1,10 @@
 {
-	"name": "@myc/types",
+	"name": "@myc/decorators",
 	"type": "module",
 	"author": "Arthur Adonai",
 	"private": true,
-	"types": "./build/types.d.ts",
+	"module": "./build/decorators.js",
+	"types": "./build/decorators.d.ts",
 	"files": [
 		"build"
 	],
@@ -13,6 +14,7 @@
 	},
 	"devDependencies": {
 		"@myc/tsconfig": "workspace:*",
+		"@myc/types": "workspace:*",
 		"@rollup/plugin-node-resolve": "latest",
 		"@rollup/plugin-typescript": "latest",
 		"rollup": "^4.0.0",
