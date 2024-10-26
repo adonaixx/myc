@@ -1,0 +1,30 @@
+{
+	"compilerOptions": {
+		/* Lib */
+		"allowJs": true,
+		"lib": [
+			"esnext"
+		],
+		"module": "esnext",
+		"moduleDetection": "force",
+
+		/* Bundler */
+		"allowImportingTsExtensions": true,
+		"esModuleInterop": true,
+		"moduleResolution": "bundler",
+		"noEmit": true,
+		"skipLibCheck": true,
+		"verbatimModuleSyntax": true,
+
+		/* Strict */
+		"strict": true,
+		"allowUnreachableCode": false,
+		"exactOptionalPropertyTypes": true,
+		"noImplicitOverride": true,
+		"noPropertyAccessFromIndexSignature": true,
+		"noUncheckedIndexedAccess": true,
+		"noUnusedLocals": true,
+		"noUnusedParameters": true,
+		"useUnknownInCatchVariables": false
+	}
+}

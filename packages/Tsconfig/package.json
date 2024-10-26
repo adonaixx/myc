@@ -1,0 +1,13 @@
+{
+	"name": "@myc/tsconfig",
+	"type": "module",
+	"author": "Arthur Adonai",
+	"private": true,
+	"module": "./tsconfig.json",
+	"files": [
+		"tsconfig.json"
+	],
+	"scripts": {
+		"link": "bun link"
+	}
+}
