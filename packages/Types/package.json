@@ -8,7 +8,7 @@
 		"build"
 	],
 	"scripts": {
-		"build": "rollup -c",
+		"build": "lint && rollup -c",
 		"link": "bun link",
 		"lint": "tsc"
 	},
