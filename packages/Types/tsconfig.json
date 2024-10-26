@@ -1,0 +1,14 @@
+{
+	"extends": "@myc/tsconfig",
+	"compilerOptions": {
+		"paths": {
+			"@/*": [
+				"./src/*.js",
+				"./src/*/mod.js"
+			]
+		}
+	},
+	"include": [
+		"src"
+	]
+}
