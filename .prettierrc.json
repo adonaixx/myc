@@ -11,6 +11,13 @@
 				"printWidth": 0,
 				"trailingComma": "none"
 			}
+		},
+		{
+			"files": "*.ts",
+			"options": {
+				"jsdocCommentLineStrategy": "multiline",
+				"tsdoc": true
+			}
 		}
 	],
 	"plugins": [
@@ -18,9 +25,7 @@
 		"prettier-plugin-pkg",
 		"prettier-plugin-toml"
 	],
-	"jsdocCommentLineStrategy": "multiline",
 	"jsdocSeparateReturnsFromParam": true,
 	"jsdocPreferCodeFences": true,
-	"tsdoc": true,
 	"jsdocPrintWidth": 80
 }
