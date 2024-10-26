@@ -1,10 +1,10 @@
 {
 	"name": "@{{kebabCase scope}}/{{kebabCase dropName}}",
 	"type": "module",
-	"private": true,
 	{{#if author}}
 	"author": "{{author}}",
 	{{/if}}
+	"private": true,
 	"module": "./build/{{kebabCase dropName}}.js",
 	"types": "./build/{{kebabCase dropName}}.d.ts",
 	"files": [
