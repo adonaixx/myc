@@ -1,5 +1,5 @@
-import type { key } from "@/Const";
-import type { Dict, ReadonlyDict } from "@/Dict";
+import type { key } from "/@/Const";
+import type { Dict, ReadonlyDict } from "/@/Dict";
 
 /**
  * Represents a dictionary with keys of type {@link Key} and values of any type.

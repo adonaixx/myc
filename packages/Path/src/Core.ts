@@ -1,5 +1,5 @@
 import type { MaybeArray } from "@myc/types";
-import { SLASH, CURRENT, PARENT } from "./Consts";
+import { CURRENT, PARENT, SLASH } from "/@/Consts";
 
 function resolve(path: string): string[];
 function resolve(paths: string[]): string[];
@@ -36,3 +36,4 @@ function resolve(pathOrPaths: MaybeArray<string>): string[] {
 }
 
 export { resolve };
+

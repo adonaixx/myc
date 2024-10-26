@@ -1,6 +1,6 @@
 import { Bound } from "@myc/decorators";
-import { CURRENT, PARENT, SLASH } from "./Consts";
-import { resolve } from "./Core";
+import { CURRENT, PARENT, SLASH } from "/@/Consts";
+import { resolve } from "/@/Core";
 
 /**
  * Class representing a path and providing utilities for path resolution,

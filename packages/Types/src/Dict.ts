@@ -1,4 +1,4 @@
-import type { key } from "@/Const";
+import type { key } from "/@/Const";
 
 /**
  * Represents a dictionary with keys of type {@link Key} and values of type

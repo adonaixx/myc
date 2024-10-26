@@ -3,7 +3,7 @@
 	"compilerOptions": {
 		"target": "es2022",
 		"paths": {
-			"@/*": [
+			"/@/*": [
 				"./src/*.js",
 				"./src/*/mod.js"
 			]

@@ -1,5 +1,14 @@
 {
 	"extends": "@{{kebabCase scope}}/tsconfig",
+	"compilerOptions": {
+		"target": "es2022",
+		"paths": {
+			"/@/*": [
+				"./src/*.js",
+				"./src/*/mod.js"
+			]
+		}
+	},
 	"include": [
 		"src"
 	]

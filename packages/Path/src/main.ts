@@ -1,2 +1,2 @@
-export { Path } from "./Path";
-export * from "./Slicing";
+export { Path } from "/@/Path";
+export * from "/@/Slicing";

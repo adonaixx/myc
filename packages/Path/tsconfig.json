@@ -1,7 +1,13 @@
 {
 	"extends": "@myc/tsconfig",
 	"compilerOptions": {
-		"target": "es2022"
+		"target": "es2022",
+		"paths": {
+			"/@/*": [
+				"./src/*.js",
+				"./src/*/mod.js"
+			]
+		}
 	},
 	"include": [
 		"src"

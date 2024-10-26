@@ -9,7 +9,7 @@
 		"build"
 	],
 	"scripts": {
-		"build": " rollup --silent -c",
+		"build": "rollup --silent -c",
 		"link": "bun link"
 	},
 	"devDependencies": {

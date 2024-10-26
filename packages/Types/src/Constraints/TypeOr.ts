@@ -1,4 +1,4 @@
-import type { missing } from "@/Const";
+import type { missing } from "/@/Const";
 
 /**
  * A utility type that represents a value that can be either of type `Type` or

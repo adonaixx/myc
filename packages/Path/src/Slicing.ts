@@ -1,5 +1,5 @@
 import type { Option } from "@myc/types";
-import { SLASH } from "./Consts";
+import { SLASH } from "/@/Consts";
 
 /**
  * Extracts the directory name from a given path.

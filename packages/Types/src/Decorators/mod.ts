@@ -10,7 +10,7 @@ import type {
 	AnyFunction,
 	Option,
 	Voidable,
-} from "@/Constraints";
+} from "/@/Constraints";
 
 /**
  * A decorator for a class constructor.

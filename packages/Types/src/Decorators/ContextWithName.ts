@@ -1,4 +1,4 @@
-import type { AnyFunction } from "@/Constraints";
+import type { AnyFunction } from "/@/Constraints";
 
 /**
  * Context provided to a class method decorator with a specific string `name`.
