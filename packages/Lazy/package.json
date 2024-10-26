@@ -1,10 +1,10 @@
 {
-	"name": "@myc/path",
+	"name": "@myc/lazy",
 	"type": "module",
 	"author": "Arthur Adonai",
 	"private": true,
-	"module": "./build/path.js",
-	"types": "./build/path.d.ts",
+	"module": "./build/lazy.js",
+	"types": "./build/lazy.d.ts",
 	"files": [
 		"build"
 	],
@@ -13,7 +13,6 @@
 		"link": "bun link"
 	},
 	"devDependencies": {
-		"@myc/decorators": "workspace:*",
 		"@myc/tsconfig": "workspace:*",
 		"@myc/types": "workspace:*",
 		"@rollup/plugin-node-resolve": "latest",
