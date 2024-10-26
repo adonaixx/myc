@@ -19,15 +19,15 @@ function dirName(path: string): Option<string> {
  * Extracts the entity (file or folder) name from a given path.
  *
  * @param path - The full file path.
- * @param removeExt - Whether to remove the extension from the entry name
+ * @param noExt - Whether or not to remove the extension from the entity name
  *   (defaults to `false`).
  *
  * @returns The entity name.
  */
-function entityName(path: string, removeExt: boolean = false) {
+function entityName(path: string, noExt: boolean = false) {
 	const entity = path.split(SLASH).at(-1)!;
 
-	if (removeExt) return entity.substring(0, entity.lastIndexOf("."));
+	if (noExt) return entity.substring(0, entity.lastIndexOf("."));
 	else return entity;
 }
 
@@ -39,7 +39,7 @@ function entityName(path: string, removeExt: boolean = false) {
  * @returns The file extension or `undefined` if no extension exists.
  */
 function extName(path: string): Option<string> {
-	return path.split(SLASH).at(-1)!.split(".").at(-1);
+	return entityName(path).split(".").at(-1);
 }
 
 export { dirName, entityName, extName };
