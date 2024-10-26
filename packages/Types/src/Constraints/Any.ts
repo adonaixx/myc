@@ -1,5 +1,5 @@
-import type { key } from "../Const";
-import type { Dict, ReadonlyDict } from "../Dict";
+import type { key } from "@/Const";
+import type { Dict, ReadonlyDict } from "@/Dict";
 
 /**
  * Represents a dictionary with keys of type {@link Key} and values of any type.
@@ -11,7 +11,8 @@ type AnyDict<Key extends key = key> = Dict<Key, any>;
 type AnyReadonlyDict<Key extends key = key> = ReadonlyDict<Key, any>;
 
 /**
- * Represents a function that accepts any number of arguments and returns any value.
+ * Represents a function that accepts any number of arguments and returns any
+ * value.
  */
 type AnyFunction = (...args: any[]) => any;
 
@@ -20,8 +21,8 @@ type AnyFunction = (...args: any[]) => any;
  */
 type AnyConstructor<Type extends object = object> = new (...args: any[]) => Type;
 /**
- * Similar to {@link AnyConstructor}, but indicates that the constructor is abstract and
- * cannot be directly instantiated.
+ * Similar to {@link AnyConstructor}, but indicates that the constructor is
+ * abstract and cannot be directly instantiated.
  */
 type AnyAbstractConstructor<Type extends object = object> = abstract new (
 	...args: any[]
