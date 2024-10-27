@@ -6,9 +6,9 @@
 	"private": true,
 	"packageManager": "pnpm@9.12.2",
 	"scripts": {
-		"build-all": "pnpm run --filter=* build",
+		"build": "pnpm run --filter=* build",
 		"gen": "plop",
-		"link-all": "pnpm run --filter=* link",
+		"link": "pnpm run --filter=* link",
 		"register": "pnpm build-all && pnpm link-all"
 	},
 	"devDependencies": {
