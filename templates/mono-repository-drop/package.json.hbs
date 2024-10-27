@@ -13,7 +13,10 @@
 	"module": "./build/{{kebabCase dropName}}.js",
 	"types": "./build/{{kebabCase dropName}}.d.ts",
 	"files": [
+		{{#if features.binary}}
+		"bin"{{/if}}{{#if (or features.library features.types)}},
 		"build"
+		{{/if}}
 	],
 	"scripts": {
 		"build": "rollup --silent -c",

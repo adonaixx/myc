@@ -4,20 +4,19 @@ import terser from "@rollup/plugin-terser";
 {{/if}}
 import typescript from "@rollup/plugin-typescript";
 import { createRequire } from "node:module";
+{{#if (or features.library features.types)}}
 import { resolve } from "node:path";
 import { pathToFileURL } from "node:url";
 import { resolveConfig } from "prettier";
 import { defineConfig } from "rollup";
-{{#if (or features.library features.types)}}
-{{#if features.types}}
 import dts from "rollup-plugin-dts";
-{{/if}}
 import prettier from "rollup-plugin-prettier";
 {{/if}}
 
 const require = createRequire(import.meta.url);
 const pkg = require("./package.json");
 
+{{#if (or features.library features.types)}}
 const prettierrc = {
 	parser: "typescript",
 	...(await resolveConfig(pathToFileURL(resolve(process.cwd(), "./src/main.ts")), {
@@ -25,7 +24,7 @@ const prettierrc = {
 		editorconfig: true,
 	})),
 };
-
+{{/if}}
 export default defineConfig([
 	{{#if features.binary}}
 	{
@@ -40,7 +39,7 @@ export default defineConfig([
 				})
 			],
 		},
-		plugins: [nodeResolve(), typescript(), dts()],
+		plugins: [nodeResolve(), typescript()],
 		external: [
 			Object.keys(pkg.dependencies ?? {}),
 			Object.keys(pkg.peerDependencies ?? {}),
