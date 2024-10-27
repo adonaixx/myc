@@ -17,8 +17,8 @@ import type {
  */
 interface ClassDecorator {
 	/**
-	 * @param target - The class constructor being decorated.
-	 * @param context - Metadata about the class constructor context.
+	 * @param target The class constructor being decorated.
+	 * @param context Metadata about the class constructor context.
 	 *
 	 * @returns Optionally returns a new class constructor.
 	 */
@@ -31,12 +31,12 @@ interface ClassDecorator {
 /**
  * A typed decorator for a class constructor with a specific base type.
  *
- * @template Type - The specific base type for the class.
+ * @template Type The specific base type for the class.
  */
 interface TypedClassDecorator<Type extends AnyAbstractConstructor> {
 	/**
-	 * @param target - The class constructor being decorated.
-	 * @param context - Metadata about the class constructor context.
+	 * @param target The class constructor being decorated.
+	 * @param context Metadata about the class constructor context.
 	 *
 	 * @returns Optionally returns a new class constructor.
 	 */
@@ -51,8 +51,8 @@ interface TypedClassDecorator<Type extends AnyAbstractConstructor> {
  */
 interface ClassMethodDecorator {
 	/**
-	 * @param target - The method being decorated.
-	 * @param context - Metadata about the method context.
+	 * @param target The method being decorated.
+	 * @param context Metadata about the method context.
 	 *
 	 * @returns Optionally returns a new method.
 	 */
@@ -65,13 +65,13 @@ interface ClassMethodDecorator {
 /**
  * A typed decorator for a class method with a specific method type.
  *
- * @template Type - The specific type of the method.
- * @template ThisType - The type of `this` in the method.
+ * @template Type The specific type of the method.
+ * @template ThisType The type of `this` in the method.
  */
 interface TypedClassMethodDecorator<Type extends AnyFunction, ThisType = object> {
 	/**
-	 * @param target - The method being decorated.
-	 * @param context - Metadata about the method context.
+	 * @param target The method being decorated.
+	 * @param context Metadata about the method context.
 	 *
 	 * @returns Optionally returns a new method.
 	 */
@@ -84,9 +84,9 @@ interface TypedClassMethodDecorator<Type extends AnyFunction, ThisType = object>
 /**
  * A typed decorator for a class method with a specific name and method type.
  *
- * @template Name - The name of the method.
- * @template Type - The specific type of the method.
- * @template ThisType - The type of `this` in the method.
+ * @template Name The name of the method.
+ * @template Type The specific type of the method.
+ * @template ThisType The type of `this` in the method.
  */
 interface TypedClassMethodDecoratorWithName<
 	Name extends string,
@@ -94,8 +94,8 @@ interface TypedClassMethodDecoratorWithName<
 	ThisType = object,
 > {
 	/**
-	 * @param target - The method being decorated.
-	 * @param context - Metadata about the method context.
+	 * @param target The method being decorated.
+	 * @param context Metadata about the method context.
 	 *
 	 * @returns Optionally returns a new method.
 	 */
@@ -108,8 +108,8 @@ interface TypedClassMethodDecoratorWithName<
 /**
  * The result function for a class field decorator.
  *
- * @template This - The type of `this` in the result function.
- * @template Type - The type of the field value.
+ * @template This The type of `this` in the result function.
+ * @template Type The type of the field value.
  */
 type ClassFieldDecoratorResult<This, Type> = (this: This, value: Type) => Type;
 
@@ -118,8 +118,8 @@ type ClassFieldDecoratorResult<This, Type> = (this: This, value: Type) => Type;
  */
 interface ClassFieldDecorator {
 	/**
-	 * @param target - The field being decorated.
-	 * @param context - Metadata about the field context.
+	 * @param target The field being decorated.
+	 * @param context Metadata about the field context.
 	 *
 	 * @returns Optionally returns a function that processes the field value.
 	 */
@@ -132,13 +132,13 @@ interface ClassFieldDecorator {
 /**
  * A typed decorator for a class field with a specific field type.
  *
- * @template Type - The specific type of the field value.
- * @template ThisType - The type of `this` in the field.
+ * @template Type The specific type of the field value.
+ * @template ThisType The type of `this` in the field.
  */
 interface TypedClassFieldDecorator<Type, ThisType = object> {
 	/**
-	 * @param target - The field being decorated.
-	 * @param context - Metadata about the field context.
+	 * @param target The field being decorated.
+	 * @param context Metadata about the field context.
 	 *
 	 * @returns Optionally returns a function that processes the field value.
 	 */
@@ -151,9 +151,9 @@ interface TypedClassFieldDecorator<Type, ThisType = object> {
 /**
  * A typed decorator for a class field with a specific name and field type.
  *
- * @template Name - The name of the field.
- * @template Type - The specific type of the field value.
- * @template ThisType - The type of `this` in the field.
+ * @template Name The name of the field.
+ * @template Type The specific type of the field value.
+ * @template ThisType The type of `this` in the field.
  */
 interface TypedClassFieldDecoratorWithName<
 	Name extends string,
@@ -161,8 +161,8 @@ interface TypedClassFieldDecoratorWithName<
 	ThisType = object,
 > {
 	/**
-	 * @param target - The field being decorated.
-	 * @param context - Metadata about the field context.
+	 * @param target The field being decorated.
+	 * @param context Metadata about the field context.
 	 *
 	 * @returns Optionally returns a function that processes the field value.
 	 */
@@ -175,8 +175,8 @@ interface TypedClassFieldDecoratorWithName<
 /**
  * The target function for a class getter decorator.
  *
- * @template This - The type of `this` in the getter.
- * @template Type - The type of the value returned by the getter.
+ * @template This The type of `this` in the getter.
+ * @template Type The type of the value returned by the getter.
  */
 type ClassGetterDecoratorTarget<This, Type> = (this: This) => Type;
 
@@ -185,8 +185,8 @@ type ClassGetterDecoratorTarget<This, Type> = (this: This) => Type;
  */
 interface ClassGetterDecorator {
 	/**
-	 * @param target - The getter function being decorated.
-	 * @param context - Metadata about the getter context.
+	 * @param target The getter function being decorated.
+	 * @param context Metadata about the getter context.
 	 *
 	 * @returns Optionally returns a new getter function.
 	 */
@@ -199,13 +199,13 @@ interface ClassGetterDecorator {
 /**
  * A typed decorator for a class getter with a specific return type.
  *
- * @template Type - The specific return type of the getter.
- * @template ThisType - The type of `this` in the getter.
+ * @template Type The specific return type of the getter.
+ * @template ThisType The type of `this` in the getter.
  */
 interface TypedClassGetterDecorator<Type, ThisType = object> {
 	/**
-	 * @param target - The getter function being decorated.
-	 * @param context - Metadata about the getter context.
+	 * @param target The getter function being decorated.
+	 * @param context Metadata about the getter context.
 	 *
 	 * @returns Optionally returns a new getter function.
 	 */
@@ -218,9 +218,9 @@ interface TypedClassGetterDecorator<Type, ThisType = object> {
 /**
  * A typed decorator for a class getter with a specific name and return type.
  *
- * @template Name - The name of the getter.
- * @template Type - The specific return type of the getter.
- * @template ThisType - The type of `this` in the getter.
+ * @template Name The name of the getter.
+ * @template Type The specific return type of the getter.
+ * @template ThisType The type of `this` in the getter.
  */
 interface TypedClassGetterDecoratorWithName<
 	Name extends string,
@@ -228,8 +228,8 @@ interface TypedClassGetterDecoratorWithName<
 	ThisType = object,
 > {
 	/**
-	 * @param target - The getter function being decorated.
-	 * @param context - Metadata about the getter context including the getter
+	 * @param target The getter function being decorated.
+	 * @param context Metadata about the getter context including the getter
 	 *   name.
 	 *
 	 * @returns Optionally returns a new getter function.
@@ -243,8 +243,8 @@ interface TypedClassGetterDecoratorWithName<
 /**
  * The target function for a class setter decorator.
  *
- * @template This - The type of `this` in the setter.
- * @template Type - The type of the value accepted by the setter.
+ * @template This The type of `this` in the setter.
+ * @template Type The type of the value accepted by the setter.
  */
 type ClassSetterDecoratorTarget<This, Type> = (this: This, value: Type) => void;
 
@@ -253,8 +253,8 @@ type ClassSetterDecoratorTarget<This, Type> = (this: This, value: Type) => void;
  */
 interface ClassSetterDecorator {
 	/**
-	 * @param target - The setter function being decorated.
-	 * @param context - Metadata about the setter context.
+	 * @param target The setter function being decorated.
+	 * @param context Metadata about the setter context.
 	 *
 	 * @returns Optionally returns a new setter function.
 	 */
@@ -267,13 +267,13 @@ interface ClassSetterDecorator {
 /**
  * A typed decorator for a class setter with a specific value type.
  *
- * @template Type - The specific type of the value accepted by the setter.
- * @template ThisType - The type of `this` in the setter.
+ * @template Type The specific type of the value accepted by the setter.
+ * @template ThisType The type of `this` in the setter.
  */
 interface TypedClassSetterDecorator<Type, ThisType = object> {
 	/**
-	 * @param target - The setter function being decorated.
-	 * @param context - Metadata about the setter context.
+	 * @param target The setter function being decorated.
+	 * @param context Metadata about the setter context.
 	 *
 	 * @returns Optionally returns a new setter function.
 	 */
@@ -286,9 +286,9 @@ interface TypedClassSetterDecorator<Type, ThisType = object> {
 /**
  * A typed decorator for a class setter with a specific name and value type.
  *
- * @template Name - The name of the setter.
- * @template Type - The specific type of the value accepted by the setter.
- * @template ThisType - The type of `this` in the setter.
+ * @template Name The name of the setter.
+ * @template Type The specific type of the value accepted by the setter.
+ * @template ThisType The type of `this` in the setter.
  */
 interface TypedClassSetterDecoratorWithName<
 	Name extends string,
@@ -296,8 +296,8 @@ interface TypedClassSetterDecoratorWithName<
 	ThisType = object,
 > {
 	/**
-	 * @param target - The setter function being decorated.
-	 * @param context - Metadata about the setter context.
+	 * @param target The setter function being decorated.
+	 * @param context Metadata about the setter context.
 	 *
 	 * @returns Optionally returns a new setter function.
 	 */
@@ -312,8 +312,8 @@ interface TypedClassSetterDecoratorWithName<
  */
 interface ClassAccessorDecorator {
 	/**
-	 * @param target - The accessor function being decorated.
-	 * @param context - Metadata about the accessor context.
+	 * @param target The accessor function being decorated.
+	 * @param context Metadata about the accessor context.
 	 *
 	 * @returns Optionally returns a new accessor function.
 	 */
@@ -326,13 +326,13 @@ interface ClassAccessorDecorator {
 /**
  * A typed decorator for a class accessor with a specific value type.
  *
- * @template Type - The specific type of the value handled by the accessor.
- * @template ThisType - The type of `this` in the accessor.
+ * @template Type The specific type of the value handled by the accessor.
+ * @template ThisType The type of `this` in the accessor.
  */
 interface TypedClassAccessorDecorator<Type, ThisType = object> {
 	/**
-	 * @param target - The accessor function being decorated.
-	 * @param context - Metadata about the accessor context.
+	 * @param target The accessor function being decorated.
+	 * @param context Metadata about the accessor context.
 	 *
 	 * @returns Optionally returns a new accessor function.
 	 */
@@ -345,9 +345,9 @@ interface TypedClassAccessorDecorator<Type, ThisType = object> {
 /**
  * A typed decorator for a class accessor with a specific name and value type.
  *
- * @template Name - The name of the accessor.
- * @template Type - The specific type of the value handled by the accessor.
- * @template ThisType - The type of `this` in the accessor.
+ * @template Name The name of the accessor.
+ * @template Type The specific type of the value handled by the accessor.
+ * @template ThisType The type of `this` in the accessor.
  */
 interface TypedClassAccessorDecoratorWithName<
 	Name extends string,
@@ -355,8 +355,8 @@ interface TypedClassAccessorDecoratorWithName<
 	ThisType = object,
 > {
 	/**
-	 * @param target - The accessor function being decorated.
-	 * @param context - Metadata about the accessor context.
+	 * @param target The accessor function being decorated.
+	 * @param context Metadata about the accessor context.
 	 *
 	 * @returns Optionally returns a new accessor function.
 	 */

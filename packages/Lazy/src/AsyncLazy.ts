@@ -24,7 +24,7 @@ class AsyncLazy<T> implements ReadonlyDelegate<T> {
 	/**
 	 * Creates an instance of AsyncLazy.
 	 *
-	 * @param supplier - A function that provides a promise resolving to the
+	 * @param supplier A function that provides a promise resolving to the
 	 *   value.
 	 */
 	constructor(supplier: Supplier<Promise<T>>) {
@@ -34,7 +34,7 @@ class AsyncLazy<T> implements ReadonlyDelegate<T> {
 	/**
 	 * Forces the asynchronous loading of the lazy value.
 	 *
-	 * @param asyncLazy - The AsyncLazy instance to load.
+	 * @param asyncLazy The AsyncLazy instance to load.
 	 */
 	static async load(asyncLazy: AnyAsyncLazy) {
 		await asyncLazy.tryLoad();
@@ -43,7 +43,7 @@ class AsyncLazy<T> implements ReadonlyDelegate<T> {
 	/**
 	 * Forces the asynchronous loading of multiple lazy values.
 	 *
-	 * @param asyncLazies - A list of AsyncLazy instances to load.
+	 * @param asyncLazies A list of AsyncLazy instances to load.
 	 */
 	static async loadAll(...asyncLazies: AnyAsyncLazy[]) {
 		await Promise.all(asyncLazies.map((asyncLazy) => asyncLazy.tryLoad()));

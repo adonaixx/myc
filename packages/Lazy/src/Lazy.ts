@@ -18,7 +18,7 @@ class Lazy<T> implements ReadonlyDelegate<T> {
 	/**
 	 * Creates an instance of Lazy.
 	 *
-	 * @param supplier - A function that provides the value when called.
+	 * @param supplier A function that provides the value when called.
 	 */
 	constructor(supplier: Supplier<T>) {
 		this.supplier = supplier;
@@ -27,7 +27,7 @@ class Lazy<T> implements ReadonlyDelegate<T> {
 	/**
 	 * Forces the loading of the lazy value.
 	 *
-	 * @param lazy - The Lazy instance to load.
+	 * @param lazy The Lazy instance to load.
 	 */
 	static load(lazy: AnyLazy) {
 		lazy.tryLoad();
@@ -36,7 +36,7 @@ class Lazy<T> implements ReadonlyDelegate<T> {
 	/**
 	 * Forces the loading of multiple lazy values.
 	 *
-	 * @param lazies - A list of Lazy instances to load.
+	 * @param lazies A list of Lazy instances to load.
 	 */
 	static loadAll(...lazies: AnyLazy[]) {
 		lazies.forEach((lazy) => lazy.tryLoad());

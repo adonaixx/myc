@@ -4,7 +4,7 @@ import { SLASH } from "/@/Consts";
 /**
  * Extracts the directory name from a given path.
  *
- * @param path - The full file path.
+ * @param path The full file path.
  *
  * @returns The directory part of the path, or `undefined` if no directory can
  *   be determined.
@@ -18,8 +18,8 @@ function dirName(path: string): Option<string> {
 /**
  * Extracts the entity (file or folder) name from a given path.
  *
- * @param path - The full file path.
- * @param noExt - Whether or not to remove the extension from the entity name
+ * @param path The full file path.
+ * @param noExt Whether or not to remove the extension from the entity name
  *   (defaults to `false`).
  *
  * @returns The entity name.
@@ -34,7 +34,7 @@ function entityName(path: string, noExt: boolean = false) {
 /**
  * Extracts the extension name from a given file path.
  *
- * @param path - The full file path.
+ * @param path The full file path.
  *
  * @returns The file extension or `undefined` if no extension exists.
  */

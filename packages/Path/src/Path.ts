@@ -19,7 +19,7 @@ class Path {
 	/**
 	 * Resolves a set of path segments into a single absolute path.
 	 *
-	 * @param paths - A sequence of path segments to resolve.
+	 * @param paths A sequence of path segments to resolve.
 	 *
 	 * @returns The resolved path as a string, or the current directory symbol
 	 *   if the path is empty.
@@ -34,11 +34,12 @@ class Path {
 	}
 
 	/**
-	 * Creates a new `Path` instance scoped within the resolved path.
+	 * Creates a new {@link Path `Path`} instance scoped within the resolved
+	 * path.
 	 *
-	 * @param paths - A sequence of path segments to resolve and scope within.
+	 * @param paths A sequence of path segments to resolve and scope within.
 	 *
-	 * @returns A new `Path` instance representing the scoped path.
+	 * @returns A new {@link Path `Path`} instance representing the scoped path.
 	 * @bound
 	 */
 	@Bound
@@ -49,10 +50,11 @@ class Path {
 	/**
 	 * Computes the relative path from one path to another.
 	 *
-	 * @param from - The starting path to compute from.
-	 * @param to - The target path to compute to.
+	 * @param from The starting path to compute from.
+	 * @param to The target path to compute to.
 	 *
-	 * @returns The relative path from `from` to `to` as a string.
+	 * @returns The relative path from {@link from `from`} to {@link to `to`} as a
+	 *   string.
 	 * @throws {TypeError} If the paths do not share a common root.
 	 * @bound
 	 */
@@ -91,8 +93,8 @@ class Path {
 	 * Resolves additional path segments relative to the current instance's
 	 * path.
 	 *
-	 * @param paths - Additional path segments to resolve relative to the
-	 *   current path.
+	 * @param paths Additional path segments to resolve relative to the current
+	 *   path.
 	 *
 	 * @returns The fully resolved path as a string.
 	 * @throws {RangeError} If the resolution goes beyond the root directory.
@@ -107,7 +109,7 @@ class Path {
 	 * Creates a new `Path` instance scoped within the current path and
 	 * additional path segments.
 	 *
-	 * @param paths - Additional path segments to scope within the current path.
+	 * @param paths Additional path segments to scope within the current path.
 	 *
 	 * @returns A new `Path` instance representing the scoped path.
 	 * @bound
@@ -121,7 +123,7 @@ class Path {
 	 * Computes the relative path from the current path to another absolute
 	 * path.
 	 *
-	 * @param toAbsolute - The absolute path to compute relative to the current
+	 * @param toAbsolute The absolute path to compute relative to the current
 	 *   path.
 	 *
 	 * @returns The relative path as a string.
@@ -133,8 +135,8 @@ class Path {
 	/**
 	 * Computes the relative path between two paths within the current path.
 	 *
-	 * @param fromWithin - The starting path relative to the current path.
-	 * @param toWithin - The target path relative to the current path.
+	 * @param fromWithin The starting path relative to the current path.
+	 * @param toWithin The target path relative to the current path.
 	 *
 	 * @returns The relative path as a string.
 	 * @bound
