@@ -18,9 +18,13 @@
 		"@{{kebabCase scope}}/tsconfig": "workspace:*",
 		"@{{kebabCase scope}}/types": "workspace:*",
 		"@rollup/plugin-node-resolve": "latest",
+		{{#if features.binary}}
+		"@rollup/plugin-terser": "latest",
+		{{/if}}
 		"@rollup/plugin-typescript": "latest",
-		"rollup": "^4.0.0",
-		"rollup-plugin-dts": "latest",
+		"rollup": "^4.0.0"{{#if features.types}},
+		"rollup-plugin-dts": "latest"{{/if}}{{#if (or features.library features.types)}},
 		"rollup-plugin-prettier": "latest"
+		{{/if}}
 	}
 }

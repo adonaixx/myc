@@ -1,12 +1,19 @@
 import nodeResolve from "@rollup/plugin-node-resolve";
+{{#if features.binary}}
+import terser from "@rollup/plugin-terser";
+{{/if}}
 import typescript from "@rollup/plugin-typescript";
 import { createRequire } from "node:module";
 import { resolve } from "node:path";
 import { pathToFileURL } from "node:url";
 import { resolveConfig } from "prettier";
 import { defineConfig } from "rollup";
+{{#if (or features.library features.types)}}
+{{#if features.types}}
 import dts from "rollup-plugin-dts";
+{{/if}}
 import prettier from "rollup-plugin-prettier";
+{{/if}}
 
 const require = createRequire(import.meta.url);
 const pkg = require("./package.json");
@@ -20,8 +27,30 @@ const prettierrc = {
 };
 
 export default defineConfig([
+	{{#if features.binary}}
 	{
 		input: "./src/main.ts",
+		output: {
+			file: "./bin/{{kebabCase dropName}}.js",
+			format: "esm",
+			plugins: [
+				terser({
+					keep_classnames: true,
+					keep_fnnames: true,
+				})
+			],
+		},
+		plugins: [nodeResolve(), typescript(), dts()],
+		external: [
+			Object.keys(pkg.dependencies ?? {}),
+			Object.keys(pkg.peerDependencies ?? {}),
+			/^@{{kebabCase scope}}\/.+$/,
+		],
+	},
+	{{/if}}
+	{{#if features.library}}
+	{
+		input: "./src/lib.ts",
 		output: {
 			file: "./build/{{kebabCase dropName}}.js",
 			format: "esm",
@@ -34,8 +63,10 @@ export default defineConfig([
 			/^@{{kebabCase scope}}\/.+$/,
 		],
 	},
+	{{/if}}
+	{{#if features.types}}
 	{
-		input: "./src/main.ts",
+		input: "./src/lib.ts",
 		output: {
 			file: "./build/{{kebabCase dropName}}.d.ts",
 			format: "esm",
@@ -48,4 +79,5 @@ export default defineConfig([
 			/^@{{kebabCase scope}}\/.+$/,
 		],
 	},
+	{{/if}}
 ]);

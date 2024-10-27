@@ -13,7 +13,7 @@ const pkg = require("./package.json");
 
 const prettierrc = {
 	parser: "typescript",
-	...(await resolveConfig(pathToFileURL(resolve(process.cwd(), "./src/main.ts")), {
+	...(await resolveConfig(pathToFileURL(resolve(process.cwd(), "./src/lib.ts")), {
 		config: "./../../.prettierrc.json",
 		editorconfig: true,
 	})),
@@ -21,7 +21,7 @@ const prettierrc = {
 
 export default defineConfig([
 	{
-		input: "./src/main.ts",
+		input: "./src/lib.ts",
 		output: {
 			file: "./build/types.d.ts",
 			format: "esm",

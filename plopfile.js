@@ -15,7 +15,7 @@ function getCurrentScopeFromPkg() {
 
 function getManyTemplates(path) {
 	return {
-		templateFiles: `./templates/${path}/**/*.hbs`,
+		templateFiles: `./templates/${path}/*.hbs`,
 		base: `./templates/${path}`,
 	};
 }
@@ -25,6 +25,103 @@ const execAsync = promisify(exec);
 export default function (/** @type {import("plop").NodePlopAPI} */ plop) {
 	plop.setWelcomeMessage("What are you needing to generate now?");
 
+	plop.setActionType("install", async (answers, { pkg }, plop) => {
+		await execAsync("pnpm i");
+		return (
+			"Installed packages" +
+			(pkg ? ` for ${plop.renderString(pkg, answers)}.` : ".")
+		);
+	});
+
+	plop.setHelper("or", (left, right) => left || right);
+
+	plop.setGenerator("Mono-repository Drop", {
+		async prompts(inquirer) {
+			const scope = getCurrentScopeFromPkg();
+			let isCurrentScope = false;
+
+			if (scope) {
+				await inquirer
+					.prompt({
+						type: "confirm",
+						name: "currentScope",
+						message: `Should your mono-repository package be generated under current scope (${scope})?`,
+					})
+					.then(({ currentScope }) => {
+						isCurrentScope = currentScope;
+					});
+			}
+
+			return inquirer.prompt(
+				[
+					isCurrentScope || {
+						type: "input",
+						askAnswered: true,
+						name: "scope",
+						message: "In wich scope should your package be generated?",
+						default: scope,
+						validate(answer) {
+							return (
+								answer.trim().length > 0 ||
+								"Scope name must not be empty or just whitespaces"
+							);
+						},
+					},
+					{
+						type: "input",
+						name: "dropName",
+						message: "How will your drop be named?",
+						validate(answer) {
+							return (
+								answer.trim().length > 0 ||
+								"Drop name must not be empty or just whitespaces"
+							);
+						},
+					},
+					{
+						type: "checkbox",
+						name: "features",
+						message: "Wich features do you want to add to your drop?",
+						choices: ["Library", "Types", "Binary"],
+						filter(features) {
+							return {
+								binary: features.includes("Binary"),
+								library: features.includes("Library"),
+								types:
+									features.includes("Types") ||
+									features.includes("Library"),
+							};
+						},
+					},
+				].filter((question) => typeof question === "object"),
+				{ scope, author }
+			);
+		},
+		actions({ features }) {
+			return [
+				{
+					type: "addMany",
+					...getManyTemplates("mono-repository-drop"),
+					destination: "./packages/{{pascalCase dropName}}",
+				},
+				features.binary && {
+					type: "add",
+					templateFile: "./templates/mono-repository-drop/src/main.ts.hbs",
+					path: "./packages/{{pascalCase dropName}}/src/main.ts",
+				},
+				features.library && {
+					type: "add",
+					templateFile: "./templates/mono-repository-drop/src/lib.ts.hbs",
+					path: "./packages/{{pascalCase dropName}}/src/lib.ts",
+				},
+				{
+					type: "install",
+					pkg: "@{{scope}}/{{kebabCase dropName}}",
+				},
+			].filter((question) => typeof question === "object");
+		},
+	});
+
 	plop.setGenerator("Mono-repository File", {
 		async prompts(inquirer) {
 			const scope = getCurrentScopeFromPkg();
@@ -33,63 +130,57 @@ export default function (/** @type {import("plop").NodePlopAPI} */ plop) {
 			if (scope) {
 				await inquirer
 					.prompt({
-						type: "list",
+						type: "confirm",
 						name: "currentScope",
 						message: `Should your mono-repository package be generated under current scope (${scope})?`,
-						choices: ["Yes", "No"],
-						filter(choice) {
-							return choice === "Yes";
-						},
 					})
 					.then(({ currentScope }) => {
 						isCurrentScope = currentScope;
 					});
 			}
 
-			/** @type {import("inquirer").DistinctQuestion[]} */
-			const questions = [
-				{
-					type: "input",
-					name: "fileName",
-					message: "What will be the name of the file without extension?",
-					validate(answer) {
-						return (
-							answer.trim().length > 0 ||
-							"File name must not be empty or just whitespaces"
-						);
+			return inquirer.prompt(
+				[
+					isCurrentScope || {
+						type: "input",
+						askAnswered: true,
+						name: "scope",
+						message: "In wich scope should your package be generated?",
+						default: scope,
+						validate(answer) {
+							return (
+								answer.trim().length > 0 ||
+								"Scope name must not be empty or just whitespaces"
+							);
+						},
 					},
-				},
-				{
-					type: "input",
-					name: "ext",
-					message: "In wich language will your file be written? (like .json)",
-					validate(ext) {
-						return (
-							/^\..+$/.test(ext) ||
-							'Extension must include the "." at the beggining'
-						);
+					{
+						type: "input",
+						name: "fileName",
+						message: "What will be the name of the file without extension?",
+						validate(answer) {
+							return (
+								answer.trim().length > 0 ||
+								"File name must not be empty or just whitespaces"
+							);
+						},
 					},
-					default: ".json",
-				},
-			];
-
-			if (!isCurrentScope) {
-				questions.unshift({
-					type: "input",
-					askAnswered: true,
-					name: "scope",
-					message: "In wich scope should your package be generated?",
-					default: scope,
-					validate(answer) {
-						return (
-							answer.trim().length > 0 ||
-							"Scope name must not be empty or just whitespaces"
-						);
+					{
+						type: "input",
+						name: "ext",
+						message:
+							"In wich language will your file be written? (like .json)",
+						validate(ext) {
+							return (
+								/^\..+$/.test(ext) ||
+								'Extension must include the "." at the beggining'
+							);
+						},
+						default: ".json",
 					},
-				});
-			}
-
-			return inquirer.prompt(questions, { scope, author });
+				].filter((question) => typeof question === "object"),
+				{ scope, author }
+			);
 		},
 		actions: [
 			{
@@ -101,81 +192,6 @@ export default function (/** @type {import("plop").NodePlopAPI} */ plop) {
 				type: "add",
 				templateFile: "./templates/mono-repository-file/package.json.hbs",
 				path: "./packages/{{pascalCase fileName}}/package.json",
-			},
-		],
-	});
-
-	plop.setActionType("install", async (answers, { pkg }, plop) => {
-		await execAsync("pnpm i");
-		return (
-			"Installed packages" +
-			(pkg ? ` for ${plop.renderString(pkg, answers)}.` : ".")
-		);
-	});
-
-	plop.setGenerator("Mono-repository Drop", {
-		async prompts(inquirer) {
-			const scope = getCurrentScopeFromPkg();
-			let isCurrentScope = false;
-
-			if (scope) {
-				await inquirer
-					.prompt({
-						type: "list",
-						name: "currentScope",
-						message: `Should your mono-repository package be generated under current scope (${scope})?`,
-						choices: ["Yes", "No"],
-						filter(choice) {
-							return choice === "Yes";
-						},
-					})
-					.then(({ currentScope }) => {
-						isCurrentScope = currentScope;
-					});
-			}
-
-			/** @type {import("inquirer").DistinctQuestion[]} */
-			const questions = [
-				{
-					type: "input",
-					name: "dropName",
-					message: "How will your drop be named?",
-					validate(answer) {
-						return (
-							answer.trim().length > 0 ||
-							"Drop name must not be empty or just whitespaces"
-						);
-					},
-				},
-			];
-
-			if (!isCurrentScope) {
-				questions.unshift({
-					type: "input",
-					askAnswered: true,
-					name: "scope",
-					message: "In wich scope should your package be generated?",
-					default: scope,
-					validate(answer) {
-						return (
-							answer.trim().length > 0 ||
-							"Scope name must not be empty or just whitespaces"
-						);
-					},
-				});
-			}
-
-			return inquirer.prompt(questions, { scope, author });
-		},
-		actions: [
-			{
-				type: "addMany",
-				...getManyTemplates("mono-repository-drop"),
-				destination: "./packages/{{pascalCase dropName}}",
-			},
-			{
-				type: "install",
-				pkg: "@{{scope}}/{{kebabCase dropName}}",
 			},
 		],
 	});
