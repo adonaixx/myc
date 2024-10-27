@@ -9,6 +9,7 @@
 		"build": "pnpm run --filter=* build",
 		"gen": "plop",
 		"link": "pnpm run --filter=* link",
+		"postgen": "prettier -wu ./**/*",
 		"register": "pnpm build-all && pnpm link-all"
 	},
 	"devDependencies": {
