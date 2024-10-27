@@ -368,18 +368,13 @@ interface TypedClassAccessorDecoratorWithName<
 
 export type {
 	ClassAccessorDecorator,
-	ClassAccessorDecoratorContextWithName,
 	ClassDecorator,
 	ClassFieldDecorator,
-	ClassFieldDecoratorContextWithName,
 	ClassFieldDecoratorResult,
 	ClassGetterDecorator,
-	ClassGetterDecoratorContextWithName,
 	ClassGetterDecoratorTarget,
 	ClassMethodDecorator,
-	ClassMethodDecoratorContextWithName,
 	ClassSetterDecorator,
-	ClassSetterDecoratorContextWithName,
 	ClassSetterDecoratorTarget,
 	TypedClassAccessorDecorator,
 	TypedClassAccessorDecoratorWithName,

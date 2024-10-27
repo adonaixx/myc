@@ -1,7 +1,8 @@
 import type { AnyFunction } from "/@/Constraints";
 
 /**
- * Context provided to a class method decorator with a specific string `name`.
+ * Context provided to a class method decorator with a specific name of literal
+ * {@link Name `type`}.
  *
  * @template Name The name of the method being decorated.
  * @template This The type on which the class element will be defined. For a
@@ -14,11 +15,15 @@ interface ClassMethodDecoratorContextWithName<
 	This,
 	Value extends AnyFunction,
 > extends ClassMethodDecoratorContext<This, Value> {
+	/**
+	 * @inheritdoc
+	 */
 	name: Name;
 }
 
 /**
- * Context provided to a class field decorator with a specific string `name`.
+ * Context provided to a class field decorator with a specific name of literal
+ * {@link Name `type`}.
  *
  * @template Name The name of the field being decorated.
  * @template This The type on which the class element will be defined. For a
@@ -28,11 +33,15 @@ interface ClassMethodDecoratorContextWithName<
  */
 interface ClassFieldDecoratorContextWithName<Name extends string, This, Value>
 	extends ClassFieldDecoratorContext<This, Value> {
+	/**
+	 * @inheritdoc
+	 */
 	name: Name;
 }
 
 /**
- * Context provided to a class setter decorator with a specific string `name`.
+ * Context provided to a class setter decorator with a specific name of literal
+ * {@link Name `type`}.
  *
  * @template Name The name of the setter being decorated.
  * @template This The type on which the class element will be defined. For a
@@ -42,11 +51,15 @@ interface ClassFieldDecoratorContextWithName<Name extends string, This, Value>
  */
 interface ClassSetterDecoratorContextWithName<Name extends string, This, Value>
 	extends ClassSetterDecoratorContext<This, Value> {
+	/**
+	 * @inheritdoc
+	 */
 	name: Name;
 }
 
 /**
- * Context provided to a class getter decorator with a specific string `name`.
+ * Context provided to a class getter decorator with a specific name of literal
+ * {@link Name `type`}.
  *
  * @template Name The name of the getter being decorated.
  * @template This The type on which the class element will be defined. For a
@@ -56,12 +69,15 @@ interface ClassSetterDecoratorContextWithName<Name extends string, This, Value>
  */
 interface ClassGetterDecoratorContextWithName<Name extends string, This, Value>
 	extends ClassGetterDecoratorContext<This, Value> {
+	/**
+	 * @inheritdoc
+	 */
 	name: Name;
 }
 
 /**
  * Context provided to a class `accessor` field decorator with a specific string
- * `name`.
+ * of literal type {@link Name `name`}.
  *
  * @template Name The name of the accessor being decorated.
  * @template This The type on which the class element will be defined. For a
@@ -71,6 +87,9 @@ interface ClassGetterDecoratorContextWithName<Name extends string, This, Value>
  */
 interface ClassAccessorDecoratorContextWithName<Name extends string, This, Value>
 	extends ClassAccessorDecoratorContext<This, Value> {
+	/**
+	 * @inheritdoc
+	 */
 	name: Name;
 }
 

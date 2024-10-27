@@ -2,11 +2,13 @@ import type { key } from "/@/Const";
 import type { Dict, ReadonlyDict } from "/@/Dict";
 
 /**
- * Represents a dictionary with keys of type {@link Key} and values of any type.
+ * Represents a dictionary with keys of type {@link Key `Key`} and values of any
+ * type.
  */
 type AnyDict<Key extends key = key> = Dict<Key, any>;
 /**
- * Similar to {@link AnyDict} but ensures that the dictionary is read-only.
+ * Represents a read-only dictionary with keys of type {@link Key `Key`} and
+ * values of any type.
  */
 type AnyReadonlyDict<Key extends key = key> = ReadonlyDict<Key, any>;
 
@@ -17,12 +19,13 @@ type AnyReadonlyDict<Key extends key = key> = ReadonlyDict<Key, any>;
 type AnyFunction = (...args: any[]) => any;
 
 /**
- * Represents a constructor function that creates objects of type {@link Type}.
+ * Represents a constructor function that creates objects of type
+ * {@link Type `Type`}.
  */
 type AnyConstructor<Type extends object = object> = new (...args: any[]) => Type;
 /**
- * Similar to {@link AnyConstructor}, but indicates that the constructor is
- * abstract and cannot be directly instantiated.
+ * Similar to {@link AnyConstructor `AnyConstructor`}, but indicates that the
+ * constructor is abstract and cannot be directly instantiated.
  */
 type AnyAbstractConstructor<Type extends object = object> = abstract new (
 	...args: any[]

@@ -1,10 +1,10 @@
-import type { Supplier } from "@myc/types";
+import type { AnyLazy, Supplier } from "@myc/types";
 import type { ReadonlyDelegate } from "/@/Types/ReadonlyDelegate";
 import { LazyState } from "/@/LazyState";
 
 /**
- * Class representing a lazily loaded value of type `T`. The value is only
- * computed when accessed for the first time.
+ * Class representing a lazily loaded value of type {@link T `T`}. The value is
+ * only computed when accessed for the first time.
  */
 class Lazy<T> implements ReadonlyDelegate<T> {
 	private supplier: Supplier<T>;
@@ -29,7 +29,7 @@ class Lazy<T> implements ReadonlyDelegate<T> {
 	 *
 	 * @param lazy - The Lazy instance to load.
 	 */
-	static load(lazy: Lazy<any>) {
+	static load(lazy: AnyLazy) {
 		lazy.tryLoad();
 	}
 
@@ -38,7 +38,7 @@ class Lazy<T> implements ReadonlyDelegate<T> {
 	 *
 	 * @param lazies - A list of Lazy instances to load.
 	 */
-	static loadAll(...lazies: Lazy<any>[]) {
+	static loadAll(...lazies: AnyLazy[]) {
 		lazies.forEach((lazy) => lazy.tryLoad());
 	}
 

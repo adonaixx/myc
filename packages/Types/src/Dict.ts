@@ -1,16 +1,16 @@
 import type { key } from "/@/Const";
 
 /**
- * Represents a dictionary with keys of type {@link Key} and values of type
- * {@link Value}.
+ * Represents a dictionary with keys of type {@link Key `Key`} and values of type
+ * {@link Value `Value`}.
  */
 type Dict<Key extends key, Value = unknown> = {
 	[Property in Key]: Value;
 };
 
 /**
- * Similar to {@link Dict}, but ensures that the object is read-only, preventing
- * modifications to its properties.
+ * Represents a read-only dictionary with keys of type {@link Key `Key`} and
+ * values of type {@link Value `Value`}.
  */
 type ReadonlyDict<Key extends key, Value = unknown> = {
 	readonly [Property in Key]: Value;

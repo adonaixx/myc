@@ -1,10 +1,16 @@
-import type { Supplier } from "@myc/types";
+import type { AnyAsyncLazy, Supplier } from "@myc/types";
 import type { ReadonlyDelegate } from "/@/Types/ReadonlyDelegate";
 import { LazyState } from "/@/LazyState";
 
 /**
- * Class representing a lazily loaded asynchronous value of type `T`. The value
- * is only computed when accessed and awaited for the first time.
+ * Class representing a lazily loaded asynchronous value of type {@link T `T`}.
+ * The value is only computed when force-loaded and awaited for the first time.
+ *
+ * @remarks
+ * Asynchronous lazily loaded values cannot be automatically loaded on
+ * {@link get `get()`}, so you need to manually load it before use with either
+ * {@link AsyncLazy.load `AsyncLazy.load()`} or
+ * {@link AsyncLazy.loadAll `AsyncLazy.loadAll()`}.
  */
 class AsyncLazy<T> implements ReadonlyDelegate<T> {
 	private supplier: Supplier<Promise<T>>;
@@ -30,7 +36,7 @@ class AsyncLazy<T> implements ReadonlyDelegate<T> {
 	 *
 	 * @param asyncLazy - The AsyncLazy instance to load.
 	 */
-	static async load(asyncLazy: AsyncLazy<any>) {
+	static async load(asyncLazy: AnyAsyncLazy) {
 		await asyncLazy.tryLoad();
 	}
 
@@ -39,7 +45,7 @@ class AsyncLazy<T> implements ReadonlyDelegate<T> {
 	 *
 	 * @param asyncLazies - A list of AsyncLazy instances to load.
 	 */
-	static async loadAll(...asyncLazies: AsyncLazy<any>[]) {
+	static async loadAll(...asyncLazies: AnyAsyncLazy[]) {
 		await Promise.all(asyncLazies.map((asyncLazy) => asyncLazy.tryLoad()));
 	}
 
