@@ -10,8 +10,11 @@
 		"{{kebabCase dropName}}": "./bin/{{kebabCase dropName}}.js"
 	},
 	{{/if}}
+	{{#if features.library}}
 	"module": "./build/{{kebabCase dropName}}.js",
+	{{/if}}{{#if features.types}}
 	"types": "./build/{{kebabCase dropName}}.d.ts",
+	{{/if}}
 	"files": [
 		{{#if features.binary}}
 		"bin"{{/if}}{{#if (or features.library features.types)}},
