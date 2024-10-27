@@ -5,6 +5,11 @@
 	"author": "{{author}}",
 	{{/if}}
 	"private": true,
+	{{#if features.binary}}
+	"bin": {
+		"{{kebabCase dropName}}": "./bin/{{kebabCase dropName}}.js"
+	},
+	{{/if}}
 	"module": "./build/{{kebabCase dropName}}.js",
 	"types": "./build/{{kebabCase dropName}}.d.ts",
 	"files": [
