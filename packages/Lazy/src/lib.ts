@@ -7,12 +7,12 @@ export { LazyState } from "/@/LazyState";
 
 declare module "@myc/types" {
 	/**
-	 * Represents a lazily loaded value of any type.
+	 * Represents a lazy-loaded value of any type.
 	 */
 	export type AnyLazy = Lazy<any>;
 
 	/**
-	 * Represents an asynchronous lazily loaded value of any type.
+	 * Represents an asynchronous lazy-loaded value of any type.
 	 */
 	export type AnyAsyncLazy = AsyncLazy<any>;
 }

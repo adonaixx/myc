@@ -1,6 +1,6 @@
 /**
- * Interface representing a readonly delegate that provides access to a value of
- * type {@link T `T`}.
+ * Interface representing a read-only delegate that provides access to a value
+ * of type {@link T `T`}.
  */
 interface ReadonlyDelegate<T> {
 	/**

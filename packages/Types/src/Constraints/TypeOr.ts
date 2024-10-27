@@ -2,38 +2,38 @@ import type { missing } from "/@/Const";
 
 /**
  * A utility type that represents a value that can be either of type
- * {@link Type `Type`} or `undefined`.
+ * {@link T `T`} or `undefined`.
  */
-type Option<Type> = Type | undefined;
+type Option<T> = T | undefined;
 
 /**
  * A utility type that represents a value that can be either of type
- * {@link Type `Type`} or `null`.
+ * {@link T `T`} or `null`.
  */
-type Nullable<Type> = Type | null;
+type Nullable<T> = T | null;
 
 /**
  * A utility type that represents a value that can be either of type
- * {@link Type `Type`} or `void`.
+ * {@link T `T`} or `void`.
  */
-type Voidable<Type> = Type | void;
+type Voidable<T> = T | void;
 
 /**
  * A utility type that represents a value that can be either of type
- * {@link Type `Type`} or a {@link missing `missing`} value.
+ * {@link T `T`} or a {@link missing `missing`} value.
  */
-type Maybe<Type> = Type | missing;
+type Maybe<T> = T | missing;
 
 /**
  * A utility type that represents a value that can be either of type
- * {@link Type `Type`} or an array of items of type {@link Type `Type`}.
+ * {@link T `T`} or an array of items of type {@link T `T`}.
  */
-type MaybeArray<Type> = Type | Type[];
+type MaybeArray<T> = T | T[];
 
 /**
  * A utility type that represents a value that can be either of type
- * {@link Type `Type`} or a promise that resolves to {@link Type `Type`}.
+ * {@link T `T`} or a promise that resolves to {@link T `T`}.
  */
-type MaybePromise<Type> = Type | Promise<Type>;
+type MaybePromise<T> = T | Promise<T>;
 
 export type { Maybe, MaybeArray, MaybePromise, Nullable, Option, Voidable };

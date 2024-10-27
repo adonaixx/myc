@@ -81,7 +81,7 @@ export default function (/** @type {import("plop").NodePlopAPI} */ plop) {
 					{
 						type: "checkbox",
 						name: "features",
-						message: "Wich features do you want to add to your drop?",
+						message: "Wich feature(s) do you want your drop to have?",
 						choices: ["Library", "Types", "Binary"],
 						filter(features) {
 							return {
