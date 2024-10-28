@@ -15,6 +15,7 @@
 		"noEmit": true,
 		"skipLibCheck": true,
 		"verbatimModuleSyntax": true,
+		"importHelpers": true,
 
 		/* Strict */
 		"strict": true,

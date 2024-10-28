@@ -25,6 +25,11 @@ const execAsync = promisify(exec);
 export default function (/** @type {import("plop").NodePlopAPI} */ plop) {
 	plop.setWelcomeMessage("What are you needing to generate now?");
 
+	plop.setActionType("prettify", async (answers, { directory }, plop) => {
+		await execAsync(`prettier -uw ${plop.renderString(directory, answers)}/**/*`);
+		return "Prettified files in " + plop.renderString(directory, answers);
+	});
+
 	plop.setActionType("install", async (answers, { pkg }, plop) => {
 		await execAsync("pnpm i");
 		return (
@@ -118,6 +123,10 @@ export default function (/** @type {import("plop").NodePlopAPI} */ plop) {
 					type: "install",
 					pkg: "@{{scope}}/{{kebabCase dropName}}",
 				},
+				{
+					type: "prettify",
+					directory: "./packages/{{pascalCase dropName}}",
+				},
 			].filter((question) => typeof question === "object");
 		},
 	});
@@ -192,6 +201,10 @@ export default function (/** @type {import("plop").NodePlopAPI} */ plop) {
 				type: "add",
 				templateFile: "./templates/mono-repository-file/package.json.hbs",
 				path: "./packages/{{pascalCase fileName}}/package.json",
+			},
+			{
+				type: "prettify",
+				directory: "./packages/{{pascalCase fileName}}",
 			},
 		],
 	});

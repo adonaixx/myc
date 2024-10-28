@@ -11,6 +11,9 @@
 		"build": "rollup --silent -c",
 		"link": "pnpm link --global"
 	},
+	"peerDependencies": {
+		"tslib": "latest"
+	},
 	"devDependencies": {
 		"@myc/tsconfig": "workspace:*",
 		"@rollup/plugin-node-resolve": "latest",

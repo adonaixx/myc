@@ -50,7 +50,7 @@ class AsyncLazy<T> implements ReadonlyDelegate<T> {
 		await Promise.all(asyncLazies.map((asyncLazy) => asyncLazy.tryLoad()));
 	}
 
-	async tryLoad() {
+	private async tryLoad() {
 		if (this.state === LazyState.Unloaded) {
 			this.value = await this.supplier();
 			this.state = LazyState.Loaded;

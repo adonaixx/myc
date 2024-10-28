@@ -29,8 +29,8 @@ export default defineConfig([
 		},
 		plugins: [nodeResolve(), typescript(), dts()],
 		external: [
-			Object.keys(pkg.dependencies ?? {}),
-			Object.keys(pkg.peerDependencies ?? {}),
+			...Object.keys(pkg.dependencies ?? {}),
+			...Object.keys(pkg.peerDependencies ?? {}),
 			/^@myc\/.+$/,
 		],
 	},
