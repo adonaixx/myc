@@ -120,12 +120,12 @@ export default function (/** @type {import("plop").NodePlopAPI} */ plop) {
 					path: "./packages/{{pascalCase dropName}}/src/lib.ts",
 				},
 				{
-					type: "install",
-					pkg: "@{{scope}}/{{kebabCase dropName}}",
-				},
-				{
 					type: "prettify",
 					directory: "./packages/{{pascalCase dropName}}",
+				},
+				{
+					type: "install",
+					pkg: "@{{scope}}/{{kebabCase dropName}}",
 				},
 			].filter((question) => typeof question === "object");
 		},

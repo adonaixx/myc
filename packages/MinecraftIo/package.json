@@ -1,0 +1,31 @@
+{
+	"name": "@myc/minecraft-io",
+	"type": "module",
+	"author": "Arthur Adonai",
+	"private": true,
+	"module": "./build/minecraft-io.js",
+	"types": "./build/minecraft-io.d.ts",
+	"files": [
+		"build"
+	],
+	"scripts": {
+		"build": "rollup --silent -c",
+		"link": "pnpm link --global"
+	},
+	"peerDependencies": {
+		"tslib": "latest"
+	},
+	"dependencies": {
+		"@minecraft/server": "1.17.0-beta.1.21.50-preview.25"
+	},
+	"devDependencies": {
+		"@myc/decorators": "workspace:*",
+		"@myc/tsconfig": "workspace:*",
+		"@myc/types": "workspace:*",
+		"@rollup/plugin-node-resolve": "latest",
+		"@rollup/plugin-typescript": "latest",
+		"rollup": "^4.0.0",
+		"rollup-plugin-dts": "latest",
+		"rollup-plugin-prettier": "latest"
+	}
+}

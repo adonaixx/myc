@@ -17,7 +17,9 @@
 	{{/if}}
 	"files": [
 		{{#if features.binary}}
-		"bin"{{/if}}{{#if (or features.library features.types)}},
+		"bin"{{#if (or features.library features.types)}},{{/if}}
+		{{/if}}
+		{{#if (or features.library features.types)}}
 		"build"
 		{{/if}}
 	],
@@ -36,9 +38,12 @@
 		"@rollup/plugin-terser": "latest",
 		{{/if}}
 		"@rollup/plugin-typescript": "latest",
-		"rollup": "^4.0.0"{{#if features.types}},
-		"rollup-plugin-dts": "latest"{{/if}}{{#if (or features.library features.types)}},
-		"rollup-plugin-prettier": "latest"
+		"rollup": "^4.0.0"
+		{{#if features.types}}
+		, "rollup-plugin-dts": "latest"
+		{{/if}}
+		{{#if (or features.library features.types)}}
+		, "rollup-plugin-prettier": "latest"
 		{{/if}}
 	}
 }
