@@ -1,2 +1,2 @@
-export * from "/@/Color";
-export { IO } from "/@/IO";
+export * from "./Color/mod";
+export { IO } from "./IO";

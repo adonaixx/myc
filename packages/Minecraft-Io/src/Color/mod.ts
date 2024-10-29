@@ -1,4 +1,4 @@
-import type { Message } from "/@/Common";
+import type { Message } from "../Common";
 
 const reset = "§r";
 

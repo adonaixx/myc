@@ -1,8 +1,8 @@
 import { world } from "@minecraft/server";
 import { Bound } from "@myc/decorators";
-import { Color } from "/@/Color";
-import type { Message } from "/@/Common";
-import type { IOTarget } from "/@/Types/IOTarget";
+import { Color } from "./Color/mod";
+import type { Message } from "./Common";
+import type { IOTarget } from "./Types/IOTarget";
 
 class IO {
 	constructor(
