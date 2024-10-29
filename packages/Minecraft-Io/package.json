@@ -9,7 +9,7 @@
 		"build"
 	],
 	"scripts": {
-		"build": "rollup --silent -c",
+		"build": "rollup -c",
 		"link": "pnpm link --global"
 	},
 	"peerDependencies": {
@@ -26,6 +26,7 @@
 		"@rollup/plugin-typescript": "latest",
 		"rollup": "^4.0.0",
 		"rollup-plugin-dts": "latest",
-		"rollup-plugin-prettier": "latest"
+		"rollup-plugin-prettier": "latest",
+		"typescript": "^5.6.3"
 	}
 }

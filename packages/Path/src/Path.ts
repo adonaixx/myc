@@ -28,7 +28,7 @@ class Path {
 	 */
 	@Bound
 	static path(...paths: string[]) {
-		const resolved = resolve(paths);
+		const resolved = resolve(...paths);
 
 		return resolved.length !== 0 ? resolved.join(SLASH) : CURRENT;
 	}

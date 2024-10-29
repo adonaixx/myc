@@ -10,7 +10,7 @@ importers:
     devDependencies:
       '@types/node':
         specifier: latest
-        version: 22.8.1
+        version: 22.8.2
       plop:
         specifier: ^4.0.0
         version: 4.0.1
@@ -113,6 +113,9 @@ importers:
       rollup-plugin-prettier:
         specifier: latest
         version: 4.1.1(prettier@3.3.3)(rollup@4.24.0)
+      typescript:
+        specifier: ^5.6.3
+        version: 5.6.3
 
   packages/Path:
     dependencies:
@@ -350,8 +353,8 @@ packages:
   '@types/ms@0.7.34':
     resolution: {integrity: sha512-nG96G3Wp6acyAgJqGasjODb+acrI7KltPiRxzHPXnP3NgI28bpQDRv53olbqGXbfcgF5aiiHmO3xpwEpS5Ld9g==}
 
-  '@types/node@22.8.1':
-    resolution: {integrity: sha512-k6Gi8Yyo8EtrNtkHXutUu2corfDf9su95VYVP10aGYMMROM6SAItZi0w1XszA6RtWTHSVp5OeFof37w0IEqCQg==}
+  '@types/node@22.8.2':
+    resolution: {integrity: sha512-NzaRNFV+FZkvK/KLCsNdTvID0SThyrs5SHB6tsD/lajr22FGC73N2QeDPM2wHtVde8mgcXuSsHQkH5cX1pbPLw==}
 
   '@types/prettier@3.0.0':
     resolution: {integrity: sha512-mFMBfMOz8QxhYVbuINtswBp9VL2b4Y0QqYHwqLz3YbgtfAcat2Dl6Y1o4e22S/OVE6Ebl9m7wWiMT2lSbAs1wA==}
@@ -1361,7 +1364,7 @@ snapshots:
   '@types/liftoff@4.0.3':
     dependencies:
       '@types/fined': 1.1.5
-      '@types/node': 22.8.1
+      '@types/node': 22.8.2
 
   '@types/mdast@4.0.4':
     dependencies:
@@ -1369,7 +1372,7 @@ snapshots:
 
   '@types/ms@0.7.34': {}
 
-  '@types/node@22.8.1':
+  '@types/node@22.8.2':
     dependencies:
       undici-types: 6.19.8
 
@@ -1381,7 +1384,7 @@ snapshots:
 
   '@types/through@0.0.33':
     dependencies:
-      '@types/node': 22.8.1
+      '@types/node': 22.8.2
 
   '@types/unist@3.0.3': {}
 
